@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_1.xsd"
+             version="3.1">
+    <persistence-unit name="SmartMobileShopPU" transaction-type="RESOURCE_LOCAL">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+
+        <class>model.Brand</class>
+        <class>model.Category</class>
+        <class>model.Role</class>
+        <class>model.User</class>
+        <class>model.Product</class>
+        <class>model.Order</class>
+        <class>model.OrderDetail</class>
+        <class>model.Question</class>
+        <class>model.Answer</class>
+
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+            <property name="jakarta.persistence.jdbc.url"
+                      value="jdbc:sqlserver://localhost:1433;databaseName=SmartMobileShop;encrypt=false;trustServerCertificate=true;sendStringParametersAsUnicode=true"/>
+            <property name="jakarta.persistence.jdbc.user" value="sa"/>
+            <property name="jakarta.persistence.jdbc.password" value="123"/>
+
+            <!-- Keep the existing database schema; JPA must not recreate or modify it. -->
+            <property name="eclipselink.ddl-generation" value="none"/>
+            <property name="eclipselink.target-database" value="org.eclipse.persistence.platform.database.SQLServerPlatform"/>
+            <property name="eclipselink.weaving" value="false"/>
+            <property name="eclipselink.logging.level" value="WARNING"/>
+        </properties>
+    </persistence-unit>
+</persistence>
